@@ -42,12 +42,13 @@ public class Lab3
 				continue;
 			}
 			
-			// for name lines.
+			// for lines start with ">" but are not the very first line of the file.
 			else if(nextLine.startsWith(">")&& StartLine == false)
 			{				
+				// write in info from last sequence.
 				writer.write("Seq"+LineCounter+"\t"+numA+"\t"+numC+"\t"+numG+"\t"+numT+"\t"+sequence+"\n");
 				
-				// reset.
+				// reset for new sequence.
 				numA = 0;
 				numC = 0;
 				numG = 0;
@@ -68,6 +69,7 @@ public class Lab3
 			}
 		}
 		
+		// for the last sequence. 
 		writer.write("Seq"+LineCounter+"\t"+numA+"\t"+numC+"\t"+numG+"\t"+numT+"\t"+sequence+"\n");
 		
 		
