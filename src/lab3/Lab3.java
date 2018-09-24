@@ -61,10 +61,10 @@ public class Lab3
 			// for sequence lines. 
 			else
 			{
-				numA +=Counter('A',nextLine);
-				numC +=Counter('C',nextLine);
-				numG +=Counter('G',nextLine);
-				numT +=Counter('T',nextLine);
+				numA +=counter('A',nextLine);
+				numC +=counter('C',nextLine);
+				numG +=counter('G',nextLine);
+				numT +=counter('T',nextLine);
 				sequence+=nextLine;
 			}
 		}
@@ -85,7 +85,7 @@ public class Lab3
 	 * @param s a string.
 	 * @return counts.
 	 */
-	public static int Counter(char letter_counted, String s)
+	public static int counter(char letter_counted, String s)
 	{
 		int count = 0;
 		for (int i = 0; i < s.length(); i++)
