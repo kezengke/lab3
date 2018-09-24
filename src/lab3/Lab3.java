@@ -9,22 +9,22 @@ import java.io.IOException;
 
 public class Lab3
 {
-	private final static String infile = "/Users/2kisa/programmingIII/FastaSeqCL.txt";
-	private final static String outfile = "/Users/2kisa/programmingIII/Fastaout.txt";
+	private final static String INFILE = "/Users/2kisa/programmingIII/FastaSeqCL.txt";
+	private final static String OUTFILE = "/Users/2kisa/programmingIII/Fastaout.txt";
 	
 	public static void main(String[] args) throws Exception
 	{ 
-		BufferedReader reader = new BufferedReader(new FileReader(new File(infile)));
-		BufferedWriter writer = new BufferedWriter(new FileWriter(new File(outfile)));
+		BufferedReader reader = new BufferedReader(new FileReader(new File(INFILE)));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(new File(OUTFILE)));
 		
-		Boolean StartLine = true;
+		Boolean startLine = true;
 		
 		int numA = 0;
 		int numC = 0;
 		int numG = 0;
 		int numT = 0;
 		
-		int LineCounter = 0;
+		int lineCounter = 0;
 		String sequence ="";
 		
 		// header row.
@@ -35,25 +35,25 @@ public class Lab3
 		for (String nextLine = reader.readLine(); nextLine != null; nextLine = reader.readLine())
 		{
 			// for the very first line of the FASTA file.
-			if(nextLine.startsWith(">")&& StartLine == true)
+			if(nextLine.startsWith(">")&& startLine == true)
 			{
-				StartLine = false;
-				++LineCounter;
+				startLine = false;
+				++lineCounter;
 				continue;
 			}
 			
 			// for lines start with ">" but are not the very first line of the file.
-			else if(nextLine.startsWith(">")&& StartLine == false)
+			else if(nextLine.startsWith(">")&& startLine == false)
 			{				
 				// write in info from last sequence.
-				writer.write("Seq"+LineCounter+"\t"+numA+"\t"+numC+"\t"+numG+"\t"+numT+"\t"+sequence+"\n");
+				writer.write("Seq"+lineCounter+"\t"+numA+"\t"+numC+"\t"+numG+"\t"+numT+"\t"+sequence+"\n");
 				
 				// reset for new sequence.
 				numA = 0;
 				numC = 0;
 				numG = 0;
 				numT = 0;
-				++LineCounter;
+				++lineCounter;
 				sequence ="";
 				continue;
 			}
@@ -70,7 +70,7 @@ public class Lab3
 		}
 		
 		// for the last sequence. 
-		writer.write("Seq"+LineCounter+"\t"+numA+"\t"+numC+"\t"+numG+"\t"+numT+"\t"+sequence+"\n");
+		writer.write("Seq"+lineCounter+"\t"+numA+"\t"+numC+"\t"+numG+"\t"+numT+"\t"+sequence+"\n");
 		
 		
 		writer.flush();
