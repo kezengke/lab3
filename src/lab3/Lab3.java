@@ -9,6 +9,7 @@ import java.io.IOException;
 
 public class Lab3
 {
+	
 	private final static String INFILE = "/Users/2kisa/programmingIII/FastaSeqCL.txt";
 	private final static String OUTFILE = "/Users/2kisa/programmingIII/Fastaout.txt";
 	
